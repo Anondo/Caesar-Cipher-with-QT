@@ -17,6 +17,8 @@ void Cipher::convertPlain()
     for (int i = 0; i < text.length(); i++)
     {
         text[i] = text[i].toUpper();
+        if(text[i] < 'A' || text[i] >'Z')
+            continue;
         if(text[i] >=  'A' && text[i] <= 'Z')
             text[i] = QChar(text[i].toLatin1() + shift); //toLatin1 returns ascii value and QChar returns ascii character..this is done QString doesn't allow adding char and int
         if(text[i] > 'Z' && text[i] != ' ')
@@ -28,6 +30,8 @@ void Cipher::convertCipher()
     for (int i = 0; i < text.length(); i++)
     {
         text[i] = text[i].toUpper();
+        if(text[i] < 'A' || text[i] >'Z')
+            continue;
         if(text[i] >=  'A' && text[i] <= 'Z')
             text[i] = QChar(text[i].toLatin1() -  shift);
         if(text[i] < 'A' && text[i] != ' ')
